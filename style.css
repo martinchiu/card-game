@@ -1,0 +1,99 @@
+#cards {
+  /* 軸 - row */
+  display: flex;
+  flex-wrap: wrap;
+  width: 85%; /* 寬度和標頭一致 */
+  margin: 0 auto;  /* 新增：置中 */
+}
+/* 每張牌的設定 */
+.card {
+  /* 卡片在容器內的排版 */
+  flex: 7% 1 1;
+  /* flex-basis; flex-grow; flex-shrink */
+  height: 8vw;
+  /* 100代表視窗完整的高度 */
+  border: 2px solid #e0e0e0;
+  margin: 2px;
+  box-sizing: border-box;
+  
+  /* 卡片內元素的排版 */
+  display: flex;
+  flex-direction: column;
+  /* main axis */
+  justify-content: space-around;
+}
+.card img {
+  max-width: 30%;
+  align-self: center;
+}
+.card p {
+  margin: 3px;
+  font-size: 10px;
+}
+.card p:last-child {
+  transform: rotate(180deg);
+}
+/* 牌背 */
+.back {
+    background: url('https://cdn.hk01.com/di/media/images/cis/5dce4b78b66f770df1c125a4.jpg/Tgxeop6-37mrSiQzpBO_fxt7SebzSexgCK2vTwitr08?v=w1920');
+    background-size: cover;
+}
+/* 配對成功 */
+.paired {
+  background-color: #f8e1eb;
+}
+/* 標頭相關 */
+#header {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 85%;
+}
+#header .title {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+#header .title img {
+max-width: 3em;
+padding-right: 0.5em;
+}
+/* 配對失敗的動畫 */
+.wrong {
+  animation-name: wrongAnimation;
+  animation-duration: 0.2s;
+  animation-iteration-count: 5;
+}
+@keyframes wrongAnimation {
+  to {
+    border: 2px solid #b862ff;
+  }
+}
+/* 遊戲結束 */
+.completed {
+  position: absolute;
+  z-index: 999;
+  top: 33vh;
+  background-color: RGBA(232, 246, 254, 0.8);
+  width: 100vw;
+  padding: 50px 0;
+}
+.completed > p {
+  font-size: 1.5em;
+  color: black;
+  text-align: center;
+  margin: 0;
+}
+.completed > p:first-child {
+  font-size: 3em;
+  font-weight: 700;
+  color: #758d9a;
+}
+/* 花色＆字色 */
+.red {
+  color: red;
+}
+.red img {
+  filter: invert(0.3) sepia(1) saturate(10) hue-rotate(-35deg);
+}
